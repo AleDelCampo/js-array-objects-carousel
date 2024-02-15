@@ -61,7 +61,6 @@
     position: absolute;
     bottom: 0;
     left: 94%;
-    z-index: 1;
     width: 100%;
     height: 100%;
     padding: 12px;
@@ -73,6 +72,10 @@
 #slider #arrows > * {
     transform: scale(1.4);
     transition: transform 0.4s ease;
+}
+
+#slider #arrows #up-arrow, #slider #arrows #down-arrow {
+    z-index: 1;
 }
 
 #slider #arrows > *:hover {

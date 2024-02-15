@@ -118,3 +118,31 @@ thumbnailsElement.addEventListener("click", function(click) {
         document.querySelector(`#slider .slide:nth-of-type(${index + 1})`).classList.add("active");
     }
 });
+
+let interval;
+let revert = false;
+
+document.querySelector("#start-slideshow").addEventListener("click", function() {
+
+    interval = setInterval(changeSlide, 3000);
+});
+
+document.querySelector("#revert-slideshow").addEventListener("click", function() {
+
+    revert = !revert;
+});
+
+document.querySelector("#stop-slideshow").addEventListener("click", function() {
+
+    clearInterval(interval);
+});
+
+function changeSlide() {
+    if (!revert) {
+
+        document.querySelector("#up-arrow").click();
+    } else {
+
+        document.querySelector("#down-arrow").click();
+    }
+}
