@@ -120,16 +120,16 @@ thumbnailsElement.addEventListener("click", function(click) {
 });
 
 let interval;
-let revert = false;
+let reverse = false;
 
 document.querySelector("#start-slideshow").addEventListener("click", function() {
 
     interval = setInterval(changeSlide, 3000);
 });
 
-document.querySelector("#revert-slideshow").addEventListener("click", function() {
+document.querySelector("#reverse-slideshow").addEventListener("click", function() {
 
-    revert = !revert;
+    reverse = !reverse;
 });
 
 document.querySelector("#stop-slideshow").addEventListener("click", function() {
@@ -138,7 +138,7 @@ document.querySelector("#stop-slideshow").addEventListener("click", function() {
 });
 
 function changeSlide() {
-    if (!revert) {
+    if (!reverse) {
 
         document.querySelector("#up-arrow").click();
     } else {
