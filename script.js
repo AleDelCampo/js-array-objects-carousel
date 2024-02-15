@@ -91,3 +91,30 @@ document.querySelector("#down-arrow").addEventListener("click", function() {
         document.querySelector(`#slider .slide:nth-of-type(${slideNumber})`).classList.add("active");
     }
 });
+
+const thumbnailsElement = document.getElementById("thumbnails");
+
+images.forEach(function(currentImage, index) {
+
+    const thumbnail = document.createElement("img");
+    
+    thumbnail.src = currentImage.image;
+
+    thumbnail.classList.add("thumbnail");
+
+    thumbnail.setAttribute("data-index", index);
+
+    thumbnailsElement.append(thumbnail);
+});
+
+thumbnailsElement.addEventListener("click", function(click) {
+
+    if (click.target.classList.contains("thumbnail")) {
+
+        const index = parseInt(click.target.getAttribute("data-index"));
+
+        document.querySelector("#slider .slide.active").classList.remove("active");
+
+        document.querySelector(`#slider .slide:nth-of-type(${index + 1})`).classList.add("active");
+    }
+});
